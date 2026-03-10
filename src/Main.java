@@ -8,9 +8,8 @@ public class Main {
         List<Pet> pets = new ArrayList<Pet>();
         boolean sair = false;
         Scanner sc = new Scanner(System.in);
-        System.out.println("---------------- UniPetShop ---------------");
         do{
-            System.out.println("-                   MENU                  -");
+            System.out.println("---------------- UniPetShop ---------------");
             System.out.println("1. Cadastrar Pet | 2. Exibir Pets | 3. Sair");
             int escolha = sc.nextInt();
             switch (escolha){
@@ -32,20 +31,26 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Pet pet = new Pet();
         System.out.println("Nome:");
-        pet.nome = sc.nextLine();
-        System.out.println("Peso:");
-        pet.peso = sc.nextFloat();
+        pet.setNome(sc.nextLine());
+        System.out.println("Espécie:");
+        pet.setEspecie(sc.nextLine());
         System.out.println("Raça:");
-        pet.raca = sc.nextLine();
+        pet.setRaca(sc.nextLine());
         System.out.println("Idade:");
-        pet.idade = sc.nextInt();
-        System.out.println("Cadastrado!");
+        pet.setIdade(sc.nextInt());
+        sc.nextLine();
+        System.out.println("Sexo:");
+        pet.setSexo(sc.nextLine());
         pets.add(pet);
     }
 
     public static void exibirPetsCadastradas(List<Pet> pets){
+        System.out.println("------------------- Pets ------------------");
+        int seqCadastro = 0;
         for (Pet pet : pets){
-            System.out.println(pet.nome);
+            seqCadastro++;
+            System.out.println(String.format("Pet %d: %s", seqCadastro, pet.getNome()));
         }
+        System.out.println("-------------------------------------------");
     }
 }
